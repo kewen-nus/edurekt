@@ -6,3 +6,6 @@ class Student(models.Model):
     name = models.CharField(max_length=256, blank=False)
     year = models.PositiveSmallIntegerField(blank=False, default=1)
     course = models.CharField(max_length=256, blank=False)
+
+    def __str__(self):
+        return "{} ({})".format(self.name, self.matric_number)
