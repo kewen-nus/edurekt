@@ -6,3 +6,6 @@ class Room(models.Model):
     name = models.CharField(max_length=256, blank=False)
     address = models.CharField(max_length=256, blank=False)
     max_cap = models.PositiveSmallIntegerField(blank=False)
+
+    def __str__(self):
+        return "{}: {}".format(self.code, self.name)
