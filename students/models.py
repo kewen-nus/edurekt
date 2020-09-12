@@ -10,6 +10,9 @@ class Student(models.Model):
 
     modules = models.ManyToManyField(Module, related_name="students", through="TakeModule")
 
+    def __str__(self):
+        return "{}: {}".format(self.matric_number, self.name)
+
 class TakeModule(models.Model):
     module = models.ForeignKey(Module, related_name="module_to_student", on_delete=models.CASCADE)
     student = models.ForeignKey(Student, related_name="student_to_module", on_delete=models.CASCADE)
